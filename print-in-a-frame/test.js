@@ -1,0 +1,50 @@
+function printInFrame(list) {
+  // console.log("parameter given =", list);
+  var list = list.split(' ');
+  // console.log("list after split =", list);
+  var longest = longestStr(list).length;
+  // console.log("longestStr(list) =", longestStr(list));
+  // console.log("var 'longest' =", longest);
+  var border = repeat('*', (longest + 4));
+  // console.log("border =", border);
+
+  console.log(border);
+  for (word of list) {
+    console.log('* ' + word + repeat(' ', longest - word.length + 1) + '*');
+  }
+  console.log(border);
+}
+
+function repeat(str, times) {
+  var result = str;
+  // console.log("str =", str);
+  // console.log("times =", times);
+
+  for (var i = 1; i < times; i++) {
+    result += str;
+    // console.log("result =", result);
+  }
+
+  return result;
+}
+
+function longestStr(list) {
+  var longest = list[0];
+
+  for (str of list) {
+    if (str.length > longest.length) {
+      longest = str;
+    }
+    // console.log(str);
+  }
+
+  return longest;
+}
+// console.log(longestStr([ 'May', 'the', 'force', 'be', 'with', 'you' ]));
+
+
+// Test driver code, do not modify
+printInFrame('May the force be with you');
+printInFrame('Here\'s Johnny!');
+printInFrame('Supercalifragalisticexpialadocious');
+printInFrame('Lost, like tears in the rain');
